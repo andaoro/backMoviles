@@ -75,11 +75,11 @@ exports.updateVendedor = async (req, res) => {
         return
     }
 
-    const vendedor = await Vendedor.findOne({ identificacion });
+ /*    const vendedor = await Vendedor.findOne({ identificacion });
     if (vendedor && !vendedor._id.equals(id)) {
         res.status(400).json({ error: `Vendedor con la identificacion ${identificacion}, ya existe.` })
         return
-    }
+    } */
 
     Vendedor.findOneAndUpdate(
         { _id: id },
@@ -121,7 +121,7 @@ exports.createVenta = async (req, res) => {
         }
 
         if ( valorventa < 2000000) {
-            res.status(400).json({ error: `Valor de la venta debe ser mayor a $2.000.000: ${valorventa}` })
+            res.status(400).json({ error: `Valor de la venta debe ser mayor a $2.000.000` })
             return
         }
 
